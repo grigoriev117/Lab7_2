@@ -6,20 +6,20 @@ import spacemarine.Writer;
 
 import java.util.Scanner;
 
-//ирир
+//РёСЂРёСЂ
 
 /**
- * Абстрактный класс, предназначенный для считаывания команд с консоли и считывания команд из файла
+ * РђР±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Р№ РґР»СЏ СЃС‡РёС‚Р°С‹РІР°РЅРёСЏ РєРѕРјР°РЅРґ СЃ РєРѕРЅСЃРѕР»Рё Рё СЃС‡РёС‚С‹РІР°РЅРёСЏ РєРѕРјР°РЅРґ РёР· С„Р°Р№Р»Р°
  */
 
 public abstract class AbstractReader implements AutoCloseable {
     /**
-     * Поле типа Scanner, предназначенное для считывания строки либо из файла, либо из консоли
+     * РџРѕР»Рµ С‚РёРїР° Scanner, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅРѕРµ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃС‚СЂРѕРєРё Р»РёР±Рѕ РёР· С„Р°Р№Р»Р°, Р»РёР±Рѕ РёР· РєРѕРЅСЃРѕР»Рё
      */
     protected Scanner scan;
 
     /**
-     * protected конструктор
+     * protected РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
      */
     protected AbstractReader() {
     }
@@ -42,7 +42,7 @@ public abstract class AbstractReader implements AutoCloseable {
     }
 
     /**
-     * @return Возвращает последнюю строку
+     * @return Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРѕСЃР»РµРґРЅСЋСЋ СЃС‚СЂРѕРєСѓ
      */
     public abstract String read(Writer w) throws EndOfFileException;
 
