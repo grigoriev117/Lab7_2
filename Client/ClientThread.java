@@ -27,8 +27,8 @@ public class ClientThread {
 
     public static void main(String[] args) {
         try {
-        	Writer.writeln("\u001B[35m" + "Для авторизации введите команду:" + "\u001B[32m" + " login" + "\u001B[0m");
-            Writer.writeln("\u001B[35m" + "Для регистрации введите команду:"+ "\u001B[32m"  + " register" + "\u001B[0m");
+        	Writer.writeln("\u001B[35m" + "Г„Г«Гї Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі:" + "\u001B[32m" + " login" + "\u001B[0m");
+            Writer.writeln("\u001B[35m" + "Г„Г«Гї Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГЁ ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі:"+ "\u001B[32m"  + " register" + "\u001B[0m");
             do {
                 InetSocketAddress addr;
                 try {
@@ -58,21 +58,21 @@ public class ClientThread {
                         }
                     }
                 } catch (IOException e) {
-                    Writer.writeln("\u001B[31m" + "Не удалось получить или прочитать ответ от сервера." + "\u001B[0m");
-                    Writer.writeln("\u001B[31m" + "Соединение разорвано." + "\u001B[0m");
+                    Writer.writeln("\u001B[31m" + "ГЌГҐ ГіГ¤Г Г«Г®Г±Гј ГЇГ®Г«ГіГ·ГЁГІГј ГЁГ«ГЁ ГЇГ°Г®Г·ГЁГІГ ГІГј Г®ГІГўГҐГІ Г®ГІ Г±ГҐГ°ГўГҐГ°Г ." + "\u001B[0m");
+                    Writer.writeln("\u001B[31m" + "Г‘Г®ГҐГ¤ГЁГ­ГҐГ­ГЁГҐ Г°Г Г§Г®Г°ГўГ Г­Г®." + "\u001B[0m");
                 }
                 sc.close();
-            } while (!exit && ConsoleClient.handlerB("Попробовать переподключить клиент? boolean: ", Utils.boolCheck));
+            } while (!exit && ConsoleClient.handlerB("ГЏГ®ГЇГ°Г®ГЎГ®ГўГ ГІГј ГЇГҐГ°ГҐГЇГ®Г¤ГЄГ«ГѕГ·ГЁГІГј ГЄГ«ГЁГҐГ­ГІ? boolean: ", Utils.boolCheck));
         } catch (IOException e) {
-            Writer.writeln("\u001B[31m" + "Неправильное закрытие сокета." + "\u001B[0m");
+            Writer.writeln("\u001B[31m" + "ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г§Г ГЄГ°Г»ГІГЁГҐ Г±Г®ГЄГҐГІГ ." + "\u001B[0m");
         } catch (ClassNotFoundException e) {
-            Writer.writeln("\u001B[31m" + "Отсутствует класс для сериализации." + "\u001B[0m");
+            Writer.writeln("\u001B[31m" + "ГЋГІГ±ГіГІГ±ГІГўГіГҐГІ ГЄГ«Г Г±Г± Г¤Г«Гї Г±ГҐГ°ГЁГ Г«ГЁГ§Г Г¶ГЁГЁ." + "\u001B[0m");
             exit = true;
         } catch (EndOfFileException e) {
-            Writer.writeln("\u001B[31m" + "Неожиданное завершение работы консоли" + "\u001B[0m");//ctrl-d
+            Writer.writeln("\u001B[31m" + "ГЌГҐГ®Г¦ГЁГ¤Г Г­Г­Г®ГҐ Г§Г ГўГҐГ°ГёГҐГ­ГЁГҐ Г°Г ГЎГ®ГІГ» ГЄГ®Г­Г±Г®Г«ГЁ" + "\u001B[0m");//ctrl-d
             exit = true;
         }
-        Writer.writeln("Клиент был закрыт...");
+        Writer.writeln("ГЉГ«ГЁГҐГ­ГІ ГЎГ»Г« Г§Г ГЄГ°Г»ГІ...");
     }
 
     public static Boolean process(Selector selector) throws IOException, EndOfFileException, ClassNotFoundException {
@@ -101,13 +101,13 @@ public class ClientThread {
                     if (w.isEnd())
                         key.interestOps(SelectionKey.OP_WRITE);
                 } else {
-                    Writer.writeln("Отсутствуют данные вывода");
+                    Writer.writeln("ГЋГІГ±ГіГІГ±ГІГўГіГѕГІ Г¤Г Г­Г­Г»ГҐ ГўГ»ГўГ®Г¤Г ");
                     key.interestOps(SelectionKey.OP_WRITE);
                 }
             }
             if (key.isWritable()) {
 
-                Writer.write("\u001B[33m" + "Ожидание ввода команды: " + "\u001B[0m");
+                Writer.write("\u001B[33m" + "ГЋГ¦ГЁГ¤Г Г­ГЁГҐ ГўГўГ®Г¤Г  ГЄГ®Г¬Г Г­Г¤Г»: " + "\u001B[0m");
                 String[] com = AbstractReader.splitter(ConsoleClient.console.read());
                 CommandSimple command = CommandConvertClient.switcher(user, com[0], com[1]);
 
@@ -123,11 +123,11 @@ public class ClientThread {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(command);
                 objectOutputStream.flush();
-                //конец
+                //ГЄГ®Г­ГҐГ¶
                 ByteBuffer bb = ByteBuffer.wrap(byteArrayOutputStream.toByteArray());
                 if (bb.array().length > 8192)
                 {
-                    Writer.writeln("Отправляемые данные слишком большие (" + bb.array().length + " > 8192). ");
+                    Writer.writeln("ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬Г»ГҐ Г¤Г Г­Г­Г»ГҐ Г±Г«ГЁГёГЄГ®Г¬ ГЎГ®Г«ГјГёГЁГҐ (" + bb.array().length + " > 8192). ");
                     return false;
                 }
                 sc.write(bb);
@@ -147,12 +147,12 @@ public class ClientThread {
             }
             sc.configureBlocking(false);
             sc.register(selector, SelectionKey.OP_WRITE);
-            Writer.writeln("Соединение установлено: " + sc.getLocalAddress());
+            Writer.writeln("Г‘Г®ГҐГ¤ГЁГ­ГҐГ­ГЁГҐ ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­Г®: " + sc.getLocalAddress());
             
 
         } catch (IOException e) {
             key.cancel();
-            Writer.writeln("Сервер недоступен. Попробуйте переподключиться позже.");
+            Writer.writeln("Г‘ГҐГ°ГўГҐГ° Г­ГҐГ¤Г®Г±ГІГіГЇГҐГ­. ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГЇГҐГ°ГҐГЇГ®Г¤ГЄГ«ГѕГ·ГЁГІГјГ±Гї ГЇГ®Г§Г¦ГҐ.");
             return false;
         }
         return true;
