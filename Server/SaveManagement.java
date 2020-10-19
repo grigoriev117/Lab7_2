@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Класс, оперирующий с файлами
+ * РљР»Р°СЃСЃ, РѕРїРµСЂРёСЂСѓСЋС‰РёР№ СЃ С„Р°Р№Р»Р°РјРё
  */
 
 public class SaveManagement {
@@ -33,7 +33,7 @@ public class SaveManagement {
     }
 
     /**
-     * Сохранение файла в CSV формат
+     * РЎРѕС…СЂР°РЅРµРЅРёРµ С„Р°Р№Р»Р° РІ CSV С„РѕСЂРјР°С‚
      */
     public static void saveToFile(Collection c) {
         if (file == null) {
@@ -47,12 +47,12 @@ public class SaveManagement {
                 fileWriter.write(r.toCSVfile() + "\n");
             }
         } catch (IOException e) {
-        	Writer.writeln("Ошибка доступа к файлу");
+        	Writer.writeln("РћС€РёР±РєР° РґРѕСЃС‚СѓРїР° Рє С„Р°Р№Р»Сѓ");
         }
     }
 
     /**
-     * Возвращает коллекцию из сохраненного файла
+     * Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»Р»РµРєС†РёСЋ РёР· СЃРѕС…СЂР°РЅРµРЅРЅРѕРіРѕ С„Р°Р№Р»Р°
      * @throws IOException 
      */
     
@@ -60,7 +60,7 @@ public class SaveManagement {
         Collection collection = new Collection(0);
       try {  BufferedReader reader1 = new BufferedReader(new FileReader(file));
       
-        // считываем построчно
+        // СЃС‡РёС‚С‹РІР°РµРј РїРѕСЃС‚СЂРѕС‡РЅРѕ
         String line = null;
         Scanner scanner = null;
         int index = 0;
@@ -118,9 +118,9 @@ public class SaveManagement {
             index = 0;
             collection.list.add(sm);
         } } catch (ArrayIndexOutOfBoundsException | DateTimeParseException | NumberFormatException e) {
-        	Writer.writeln("\u001B[31m" + "Ошибка чтения файла, строка: " + "\u001B[0m");}
+        	Writer.writeln("\u001B[31m" + "РћС€РёР±РєР° С‡С‚РµРЅРёСЏ С„Р°Р№Р»Р°, СЃС‚СЂРѕРєР°: " + "\u001B[0m");}
         } catch (FileNotFoundException e) {
-        	Writer.writeln("\u001B[31m" + "Ошибка доступа к файлу" + "\u001B[0m");}
+        	Writer.writeln("\u001B[31m" + "РћС€РёР±РєР° РґРѕСЃС‚СѓРїР° Рє С„Р°Р№Р»Сѓ" + "\u001B[0m");}
          
        
        // reader.close();
