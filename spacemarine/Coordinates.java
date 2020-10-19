@@ -3,12 +3,12 @@ package spacemarine;
 import Exceptions.FailedCheckException;
 
 /**
- * Класс - поле класса SpaceMarine
+ * РљР»Р°СЃСЃ - РїРѕР»Рµ РєР»Р°СЃСЃР° SpaceMarine
  */
 
 public class Coordinates {
-    private int x; //Поле может быть null
-    private Double y; //Значение поля должно быть больше -765, Поле не может быть null
+    private int x; //РџРѕР»Рµ РјРѕР¶РµС‚ Р±С‹С‚СЊ null
+    private Double y; //Р—РЅР°С‡РµРЅРёРµ РїРѕР»СЏ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ -765, РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ null
 
     public Coordinates(int x, Double y) {
         this.x = x;
@@ -16,7 +16,7 @@ public class Coordinates {
     }
 
     /**
-     * Проверка для x Integer
+     * РџСЂРѕРІРµСЂРєР° РґР»СЏ x Integer
      */
     public static Checker<Integer> xCheck = (Integer I) -> {
         if (I != null) return I;
@@ -24,7 +24,7 @@ public class Coordinates {
     };
 
     /**
-     * Проверка для y Long
+     * РџСЂРѕРІРµСЂРєР° РґР»СЏ y Long
      */
     public static Checker<Double> yCheck = (Double D) -> {
         if (D != null) return D;
