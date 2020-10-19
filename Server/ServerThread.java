@@ -60,8 +60,8 @@ public class ServerThread {
                 ssc.bind(new InetSocketAddress("localhost", 4356));
             }
             ssc.configureBlocking(false);
-            Writer.writeln("Сервер запущен.");
-            logger.info("Сервер запущен. " + ssc.getLocalAddress());
+            Writer.writeln("РЎРµСЂРІРµСЂ Р·Р°РїСѓС‰РµРЅ.");
+            logger.info("РЎРµСЂРІРµСЂ Р·Р°РїСѓС‰РµРЅ. " + ssc.getLocalAddress());
 
             sqlRun = new PostgreSQL("URL", "login", "password", globalKillFlag);
             sqlRun.start();
@@ -72,32 +72,32 @@ public class ServerThread {
             new Thread(() -> {
                 try {
                     while (!Console.console.read().equals("exit")) {
-                        Writer.writeln("Такой команды нет");
+                        Writer.writeln("РўР°РєРѕР№ РєРѕРјР°РЅРґС‹ РЅРµС‚");
                     }
                     globalKillFlag.set(true);
                 } catch (EndOfFileException e) {
                     globalKillFlag.set(true);
-                    Writer.writeln("Работа с консолью завершина.");
+                    Writer.writeln("Р Р°Р±РѕС‚Р° СЃ РєРѕРЅСЃРѕР»СЊСЋ Р·Р°РІРµСЂС€РёРЅР°.");
                 }
             }).start();
 
             while (!globalKillFlag.get()) {
                 SocketChannel s = ssc.accept();
                 if (s != null) {
-                    System.out.println("Соединение с " + s);
+                    System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ СЃ " + s);
                     s.configureBlocking(false);
                     ConcurrentLinkedQueue<ByteBuffer> messages = new ConcurrentLinkedQueue<>();
                     final AtomicBoolean killFlag = new AtomicBoolean(false);
-                    //поток для чтения
+                    //РїРѕС‚РѕРє РґР»СЏ С‡С‚РµРЅРёСЏ
                     poolFixed.submit(() -> read(s, messages, killFlag));
-                    //поток для записи
+                    //РїРѕС‚РѕРє РґР»СЏ Р·Р°РїРёСЃРё
                     pool.submit(() -> answer(s, messages, killFlag));
                 }
                 Thread.sleep(500);
                 //System.out.println(Thread.activeCount());
             }
             ssc.close();
-            logger.info("Сервер закрыт");
+            logger.info("РЎРµСЂРІРµСЂ Р·Р°РєСЂС‹С‚");
        
         poolFixed.shutdownNow();
         pool.shutdownNow();
@@ -123,15 +123,15 @@ public class ServerThread {
                     channel.close();
                     throw new IOException();
                 } else if (read != 0) {
-                    //поток обработки
+                    //РїРѕС‚РѕРє РѕР±СЂР°Р±РѕС‚РєРё
                     pool.submit(() -> {
                         try {
                             buf.flip();
                             process(buf, messages);
                         } catch (IOException | ClassNotFoundException e) {
                             killFlag.set(true);
-                            Writer.writeln("При обработке команды произошли ошибки.");
-                            Writer.writeln("Ради безопасности соединение было остановлено.");
+                            Writer.writeln("РџСЂРё РѕР±СЂР°Р±РѕС‚РєРµ РєРѕРјР°РЅРґС‹ РїСЂРѕРёР·РѕС€Р»Рё РѕС€РёР±РєРё.");
+                            Writer.writeln("Р Р°РґРё Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё СЃРѕРµРґРёРЅРµРЅРёРµ Р±С‹Р»Рѕ РѕСЃС‚Р°РЅРѕРІР»РµРЅРѕ.");
                         } catch (EndOfFileException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -141,11 +141,11 @@ public class ServerThread {
                 Thread.sleep(500);
             }
         } catch (IOException | InterruptedException e) {
-            Writer.writeln("Соединение разорвано...");
-            Writer.writeln("Сервер продолжит работать. Попробуйте запустить другой клиент, чтобы восстановить соединение.");
-            logger.info("Соединение разорвано. Сервер продолжил работать.");
+            Writer.writeln("РЎРѕРµРґРёРЅРµРЅРёРµ СЂР°Р·РѕСЂРІР°РЅРѕ...");
+            Writer.writeln("РЎРµСЂРІРµСЂ РїСЂРѕРґРѕР»Р¶РёС‚ СЂР°Р±РѕС‚Р°С‚СЊ. РџРѕРїСЂРѕР±СѓР№С‚Рµ Р·Р°РїСѓСЃС‚РёС‚СЊ РґСЂСѓРіРѕР№ РєР»РёРµРЅС‚, С‡С‚РѕР±С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ.");
+            logger.info("РЎРѕРµРґРёРЅРµРЅРёРµ СЂР°Р·РѕСЂРІР°РЅРѕ. РЎРµСЂРІРµСЂ РїСЂРѕРґРѕР»Р¶РёР» СЂР°Р±РѕС‚Р°С‚СЊ.");
         }
-        System.out.println("Закрылся read");
+        System.out.println("Р—Р°РєСЂС‹Р»СЃСЏ read");
         killFlag.set(true);
     }
     
@@ -161,9 +161,9 @@ public class ServerThread {
                 Thread.sleep(500);
             }
         } catch (IOException | InterruptedException e) {
-            Writer.writeln("Не удалось отправить все данные.");
+            Writer.writeln("РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ РІСЃРµ РґР°РЅРЅС‹Рµ.");
         }
-        System.out.println("Закрылся answer");
+        System.out.println("Р—Р°РєСЂС‹Р»СЃСЏ answer");
         killFlag.set(true);
     }
 
@@ -177,9 +177,9 @@ public class ServerThread {
         buf.clear();
         Writer w = CommandConvert.switcher(command, collection, sqlRun);
         reloadCollection();
-        Writer.writeln("Вызвана команада: " + command.getCurrent().toString());
-        logger.info("Вызвана команада: " + command.toString());
-        logger.info("Комманда обработана успешно. Ответ:" + (w.toString()));
+        Writer.writeln("Р’С‹Р·РІР°РЅР° РєРѕРјР°РЅР°РґР°: " + command.getCurrent().toString());
+        logger.info("Р’С‹Р·РІР°РЅР° РєРѕРјР°РЅР°РґР°: " + command.toString());
+        logger.info("РљРѕРјРјР°РЅРґР° РѕР±СЂР°Р±РѕС‚Р°РЅР° СѓСЃРїРµС€РЅРѕ. РћС‚РІРµС‚:" + (w.toString()));
         
 
 
