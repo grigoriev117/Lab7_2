@@ -215,7 +215,7 @@ public class CommandConvert {
     public static Writer update(Collection c, CommandSimple com, PostgreSQL sqlRun) {
     Writer w = new Writer();
     List<SpaceMarine> list = properUser(w, com.getUser(), c);
-    SpaceMarine sm1 = deser( ((String) com.returnObj()).replace("{", "").replace("}", "").replace(" ", ""));
+    SpaceMarine sm1 = (SpaceMarine) com.returnObj();
     
     
     if (list != null) {
@@ -355,9 +355,7 @@ public class CommandConvert {
     Writer w = new Writer();
     List<SpaceMarine> list = properUser(w, com.getUser(), c);
     
-    String s = (String) com.returnObj();
-    s.replace("{", "").replace("}", "").replace(" ", "");
-    SpaceMarine smm = deser(s);
+    SpaceMarine smm = (SpaceMarine) com.returnObj();
     
     if (list != null) {
     	Long id = c.getNextId();
