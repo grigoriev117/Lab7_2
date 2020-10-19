@@ -13,18 +13,18 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * класс для считывания команд с файла
+ * РєР»Р°СЃСЃ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ РєРѕРјР°РЅРґ СЃ С„Р°Р№Р»Р°
  */
 public class Reader extends AbstractReader {
     public Reader(String file) throws IncorrectFileNameException, FileNotFoundException {
         File f = new File(file);
         if (!f.exists())
-            throw new IncorrectFileNameException("Ошибка! Файл не найден!");
+            throw new IncorrectFileNameException("РћС€РёР±РєР°! Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ!");
         scan = new Scanner(new File(file));
     }
 
     /**
-     * считывание строки
+     * СЃС‡РёС‚С‹РІР°РЅРёРµ СЃС‚СЂРѕРєРё
      */
     @Override
     public String read(Writer w) {
@@ -33,7 +33,7 @@ public class Reader extends AbstractReader {
             w.addToList(false, line + "\n");
             return line;
         }
-        w.addToList(false, "Конец файла." + "\n");
+        w.addToList(false, "РљРѕРЅРµС† С„Р°Р№Р»Р°." + "\n");
         return null;
     }
     public String read() {
