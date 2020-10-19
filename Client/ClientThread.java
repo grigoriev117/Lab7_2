@@ -27,8 +27,8 @@ public class ClientThread {
 
     public static void main(String[] args) {
         try {
-        	Writer.writeln("\u001B[35m" + "Äëÿ àâòîðèçàöèè ââåäèòå êîìàíäó:" + "\u001B[32m" + " login" + "\u001B[0m");
-            Writer.writeln("\u001B[35m" + "Äëÿ ðåãèñòðàöèè ââåäèòå êîìàíäó:"+ "\u001B[32m"  + " register" + "\u001B[0m");
+        	Writer.writeln("\u001B[35m" + "Для авторизации введите команду:" + "\u001B[32m" + " login" + "\u001B[0m");
+            Writer.writeln("\u001B[35m" + "Для регистрации введите команду:"+ "\u001B[32m"  + " register" + "\u001B[0m");
             do {
                 InetSocketAddress addr;
                 try {
@@ -57,22 +57,22 @@ public class ClientThread {
                             }
                         }
                     }
-                } catch (IOException e) {
-                    Writer.writeln("\u001B[31m" + "Íå óäàëîñü ïîëó÷èòü èëè ïðî÷èòàòü îòâåò îò ñåðâåðà." + "\u001B[0m");
-                    Writer.writeln("\u001B[31m" + "Ñîåäèíåíèå ðàçîðâàíî." + "\u001B[0m");
+               } catch (IOException e) {
+                    Writer.writeln("\u001B[31m" + "Не удалось получить или прочитать ответ от сервера." + "\u001B[0m");
+                    Writer.writeln("\u001B[31m" + "Соединение разорвано." + "\u001B[0m");
                 }
                 sc.close();
-            } while (!exit && ConsoleClient.handlerB("Ïîïðîáîâàòü ïåðåïîäêëþ÷èòü êëèåíò? boolean: ", Utils.boolCheck));
+            } while (!exit && ConsoleClient.handlerB("Попробовать переподключить клиент? boolean: ", Utils.boolCheck));
         } catch (IOException e) {
-            Writer.writeln("\u001B[31m" + "Íåïðàâèëüíîå çàêðûòèå ñîêåòà." + "\u001B[0m");
+            Writer.writeln("\u001B[31m" + "Неправильное закрытие сокета." + "\u001B[0m");
         } catch (ClassNotFoundException e) {
-            Writer.writeln("\u001B[31m" + "Îòñóòñòâóåò êëàññ äëÿ ñåðèàëèçàöèè." + "\u001B[0m");
+            Writer.writeln("\u001B[31m" + "Отсутствует класс для сериализации." + "\u001B[0m");
             exit = true;
         } catch (EndOfFileException e) {
-            Writer.writeln("\u001B[31m" + "Íåîæèäàííîå çàâåðøåíèå ðàáîòû êîíñîëè" + "\u001B[0m");//ctrl-d
+            Writer.writeln("\u001B[31m" + "Неожиданное завершение работы консоли" + "\u001B[0m");//ctrl-d
             exit = true;
         }
-        Writer.writeln("Êëèåíò áûë çàêðûò...");
+        Writer.writeln("Клиент был закрыт...");
     }
 
     public static Boolean process(Selector selector) throws IOException, EndOfFileException, ClassNotFoundException {
@@ -101,13 +101,13 @@ public class ClientThread {
                     if (w.isEnd())
                         key.interestOps(SelectionKey.OP_WRITE);
                 } else {
-                    Writer.writeln("Îòñóòñòâóþò äàííûå âûâîäà");
+                    Writer.writeln("Отсутствуют данные вывода");
                     key.interestOps(SelectionKey.OP_WRITE);
                 }
             }
             if (key.isWritable()) {
 
-                Writer.write("\u001B[33m" + "Îæèäàíèå ââîäà êîìàíäû: " + "\u001B[0m");
+                Writer.write("\u001B[33m" + "Ожидание ввода команды: " + "\u001B[0m");
                 String[] com = AbstractReader.splitter(ConsoleClient.console.read());
                 CommandSimple command = CommandConvertClient.switcher(user, com[0], com[1]);
 
@@ -123,11 +123,11 @@ public class ClientThread {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(command);
                 objectOutputStream.flush();
-                //êîíåö
+                //конец
                 ByteBuffer bb = ByteBuffer.wrap(byteArrayOutputStream.toByteArray());
                 if (bb.array().length > 8192)
                 {
-                    Writer.writeln("Îòïðàâëÿåìûå äàííûå ñëèøêîì áîëüøèå (" + bb.array().length + " > 8192). ");
+                    Writer.writeln("Отправляемые данные слишком большие (" + bb.array().length + " > 8192). ");
                     return false;
                 }
                 sc.write(bb);
@@ -147,12 +147,12 @@ public class ClientThread {
             }
             sc.configureBlocking(false);
             sc.register(selector, SelectionKey.OP_WRITE);
-            Writer.writeln("Ñîåäèíåíèå óñòàíîâëåíî: " + sc.getLocalAddress());
+            Writer.writeln("Соединение установлено: " + sc.getLocalAddress());
             
 
         } catch (IOException e) {
             key.cancel();
-            Writer.writeln("Ñåðâåð íåäîñòóïåí. Ïîïðîáóéòå ïåðåïîäêëþ÷èòüñÿ ïîçæå.");
+            Writer.writeln("Сервер недоступен. Попробуйте переподключиться позже.");
             return false;
         }
         return true;
