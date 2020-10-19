@@ -11,7 +11,7 @@ public class CommandA extends CommandSimple {
 	//private static final long serialVersionUID = 1L;
 	String smm;
 	Long id;
-    public CommandA(User user, String smm, Long id) {
+    public CommandA(User user, SpaceMarine smm, Long id) {
         super(user, CommandsList.UPDATE, id1);
         this.smm = smm;
         this.id = id;
@@ -25,7 +25,7 @@ public class CommandA extends CommandSimple {
     }
 
     @Override
-    public String returnObj() {
+    public SpaceMarine returnObj() {
         return smm;
     }
     @Override
