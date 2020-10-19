@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Класс, оперирующий с файлами
+ * Класс для работы с файлами
  */
 
 public class SaveManagement {
