@@ -64,7 +64,7 @@ public class CommandConvert {
             case REGISTER:
             	return register(c, com, sqlRun);
             default:
-                Writer.writeln("Такой команды нет. Введите help, чтобы посмотреть список доступных команд");
+                Writer.writeln("РўР°РєРѕР№ РєРѕРјР°РЅРґС‹ РЅРµС‚. Р’РІРµРґРёС‚Рµ help, С‡С‚РѕР±С‹ РїРѕСЃРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С… РєРѕРјР°РЅРґ");
         }
         return new Writer();
     }
@@ -102,30 +102,30 @@ public class CommandConvert {
 	}
 
 	/**
-	* Показывает информацию по всем возможным командам
+	* РџРѕРєР°Р·С‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕ РІСЃРµРј РІРѕР·РјРѕР¶РЅС‹Рј РєРѕРјР°РЅРґР°Рј
 	*/
 
     public static Writer help() {
         Writer w = new Writer();
         w.addToList(true,
-        		"help : вывести справку по доступным командам\n"+
-        				"register : зарегистрироваться\n" +
-        				"login : войти в учетную запись\n" +
-        				"info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n"+
-        				"show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n"+
-        				"add {element} : добавить новый элемент в коллекцию\n"+
-        				"update id {element} : обновить значение элемента коллекции, id которого равен заданному\n"+
-        				"remove_by_id id : удалить элемент из коллекции по его id\n"+
-        				"clear : очистить коллекцию\n"+
-        				"execute_script file_name : считать и исполнить скрипт из указанного файла.\n"+
-        				"В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.\n"+
-        				"exit : завершить программу (без сохранения в файл)\n"+
-        				"remove_first : удалить первый элемент из коллекции\n"+
-        				"head : вывести первый элемент коллекции\n"+
-        				"remove_head : вывести первый элемент коллекции и удалить его\n"+
-        				"remove_all_by_weapon_type weaponType : удалить из коллекции все элементы, значение поля weaponType которого эквивалентно заданному\n"+
-        				"group_counting_by_chapter : сгруппировать элементы коллекции по значению поля chapter, вывести количество элементов в каждой группе\n"+
-        				"filter_less_than_loyal loyal : вывести элементы, значение поля loyal которых меньше заданного\n"
+        		"help : РІС‹РІРµСЃС‚Рё СЃРїСЂР°РІРєСѓ РїРѕ РґРѕСЃС‚СѓРїРЅС‹Рј РєРѕРјР°РЅРґР°Рј\n"+
+        				"register : Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ\n" +
+        				"login : РІРѕР№С‚Рё РІ СѓС‡РµС‚РЅСѓСЋ Р·Р°РїРёСЃСЊ\n" +
+        				"info : РІС‹РІРµСЃС‚Рё РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РїРѕС‚РѕРє РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РєРѕР»Р»РµРєС†РёРё (С‚РёРї, РґР°С‚Р° РёРЅРёС†РёР°Р»РёР·Р°С†РёРё, РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ Рё С‚.Рґ.)\n"+
+        				"show : РІС‹РІРµСЃС‚Рё РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РїРѕС‚РѕРє РІС‹РІРѕРґР° РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РєРѕР»Р»РµРєС†РёРё РІ СЃС‚СЂРѕРєРѕРІРѕРј РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРё\n"+
+        				"add {element} : РґРѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РІ РєРѕР»Р»РµРєС†РёСЋ\n"+
+        				"update id {element} : РѕР±РЅРѕРІРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РєРѕР»Р»РµРєС†РёРё, id РєРѕС‚РѕСЂРѕРіРѕ СЂР°РІРµРЅ Р·Р°РґР°РЅРЅРѕРјСѓ\n"+
+        				"remove_by_id id : СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РµРіРѕ id\n"+
+        				"clear : РѕС‡РёСЃС‚РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ\n"+
+        				"execute_script file_name : СЃС‡РёС‚Р°С‚СЊ Рё РёСЃРїРѕР»РЅРёС‚СЊ СЃРєСЂРёРїС‚ РёР· СѓРєР°Р·Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р°.\n"+
+        				"Р’ СЃРєСЂРёРїС‚Рµ СЃРѕРґРµСЂР¶Р°С‚СЃСЏ РєРѕРјР°РЅРґС‹ РІ С‚Р°РєРѕРј Р¶Рµ РІРёРґРµ, РІ РєРѕС‚РѕСЂРѕРј РёС… РІРІРѕРґРёС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІ РёРЅС‚РµСЂР°РєС‚РёРІРЅРѕРј СЂРµР¶РёРјРµ.\n"+
+        				"exit : Р·Р°РІРµСЂС€РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ (Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ РІ С„Р°Р№Р»)\n"+
+        				"remove_first : СѓРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РёР· РєРѕР»Р»РµРєС†РёРё\n"+
+        				"head : РІС‹РІРµСЃС‚Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕР»Р»РµРєС†РёРё\n"+
+        				"remove_head : РІС‹РІРµСЃС‚Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕР»Р»РµРєС†РёРё Рё СѓРґР°Р»РёС‚СЊ РµРіРѕ\n"+
+        				"remove_all_by_weapon_type weaponType : СѓРґР°Р»РёС‚СЊ РёР· РєРѕР»Р»РµРєС†РёРё РІСЃРµ СЌР»РµРјРµРЅС‚С‹, Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ weaponType РєРѕС‚РѕСЂРѕРіРѕ СЌРєРІРёРІР°Р»РµРЅС‚РЅРѕ Р·Р°РґР°РЅРЅРѕРјСѓ\n"+
+        				"group_counting_by_chapter : СЃРіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚С‹ РєРѕР»Р»РµРєС†РёРё РїРѕ Р·РЅР°С‡РµРЅРёСЋ РїРѕР»СЏ chapter, РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РєР°Р¶РґРѕР№ РіСЂСѓРїРїРµ\n"+
+        				"filter_less_than_loyal loyal : РІС‹РІРµСЃС‚Рё СЌР»РµРјРµРЅС‚С‹, Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ loyal РєРѕС‚РѕСЂС‹С… РјРµРЅСЊС€Рµ Р·Р°РґР°РЅРЅРѕРіРѕ\n"
         				);
 
         w.addToList(false,"end");
@@ -134,9 +134,9 @@ public class CommandConvert {
     
     public static Writer info(Collection collection) {
         Writer w = new Writer();
-        w.addToList(true, "Тип коллекции: " + collection.map.getClass().getName());
-        w.addToList(true, "Колличество зарегестрированных пользователей: " + collection.map.size());
-        w.addToList(true, "Коллеция создана: " + collection.getDate());
+        w.addToList(true, "РўРёРї РєРѕР»Р»РµРєС†РёРё: " + collection.map.getClass().getName());
+        w.addToList(true, "РљРѕР»Р»РёС‡РµСЃС‚РІРѕ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№: " + collection.map.size());
+        w.addToList(true, "РљРѕР»Р»РµС†РёСЏ СЃРѕР·РґР°РЅР°: " + collection.getDate());
         w.addToList(false,"end");
         return w;
     }
@@ -144,10 +144,10 @@ public class CommandConvert {
     private static Writer login(Collection c, CommandSimple com) {
         Writer w = new Writer();
         if (c.isUserInMap(com.getUser()))
-            w.addToList(true, "\u001B[32m" + "Вы авторизировались под логином: " + com.getUser().login + "\u001B[0m");
+            w.addToList(true, "\u001B[32m" + "Р’С‹ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°Р»РёСЃСЊ РїРѕРґ Р»РѕРіРёРЅРѕРј: " + com.getUser().login + "\u001B[0m");
         else {
-            w.addToList(true, "Не удаётся войти.");
-            w.addToList(true, "Проверьте логин и пароль.");
+            w.addToList(true, "РќРµ СѓРґР°С‘С‚СЃСЏ РІРѕР№С‚Рё.");
+            w.addToList(true, "РџСЂРѕРІРµСЂСЊС‚Рµ Р»РѕРіРёРЅ Рё РїР°СЂРѕР»СЊ.");
         }
 
         w.addToList(false,"end");
@@ -157,8 +157,8 @@ public class CommandConvert {
     
     
     /**
-    * Считывает и исполняет скрипт из указанного файла.
-    * В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме
+    * РЎС‡РёС‚С‹РІР°РµС‚ Рё РёСЃРїРѕР»РЅСЏРµС‚ СЃРєСЂРёРїС‚ РёР· СѓРєР°Р·Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р°.
+    * Р’ СЃРєСЂРёРїС‚Рµ СЃРѕРґРµСЂР¶Р°С‚СЃСЏ РєРѕРјР°РЅРґС‹ РІ С‚Р°РєРѕРј Р¶Рµ РІРёРґРµ, РІ РєРѕС‚РѕСЂРѕРј РёС… РІРІРѕРґРёС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІ РёРЅС‚РµСЂР°РєС‚РёРІРЅРѕРј СЂРµР¶РёРјРµ
     * @throws IOException
     */
     public static Writer executeScript(Collection c, CommandSimple command, PostgreSQL sqlRun) throws IOException {
@@ -169,27 +169,27 @@ public class CommandConvert {
             if (RecursionHandler.isContains(s)) {
                 RecursionHandler.addToFiles(s);
                 String[] com;
-                w.addToList(false, "\u001B[33m" + "Чтение команды в файле " + s + ": " + "\u001B[0m");
+                w.addToList(false, "\u001B[33m" + "Р§С‚РµРЅРёРµ РєРѕРјР°РЅРґС‹ РІ С„Р°Р№Р»Рµ " + s + ": " + "\u001B[0m");
                 String line = reader.read(w);
                 while (line != null && programIsWorking) {
                 com = AbstractReader.splitter(line);
                 programIsWorking = Command.switcher(w, reader, c, com[0], com[1], sqlRun, command.getUser());
-                w.addToList(false, "\u001B[33m" + "Чтение команды в файле " + s + ": " + "\u001B[0m");
+                w.addToList(false, "\u001B[33m" + "Р§С‚РµРЅРёРµ РєРѕРјР°РЅРґС‹ РІ С„Р°Р№Р»Рµ " + s + ": " + "\u001B[0m");
                 line = reader.read(w);
                 }
                 RecursionHandler.removeLast();
                 } else
-                w.addToList(true, "\u001B[31m" + "Найдено повторение" + "\u001B[0m");
+                w.addToList(true, "\u001B[31m" + "РќР°Р№РґРµРЅРѕ РїРѕРІС‚РѕСЂРµРЅРёРµ" + "\u001B[0m");
 
                 } catch (Exceptions.IncorrectFileNameException e) {
-                w.addToList(true, "\u001B[31m" + "Неверное имя файла" + "\u001B[0m");
+                w.addToList(true, "\u001B[31m" + "РќРµРІРµСЂРЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°" + "\u001B[0m");
                 } catch (Exceptions.EndOfFileException e) {
-                w.addToList(true, "\u001B[31m" + "Неожиданный конец файла " + s + "\u001B[0m");
+                w.addToList(true, "\u001B[31m" + "РќРµРѕР¶РёРґР°РЅРЅС‹Р№ РєРѕРЅРµС† С„Р°Р№Р»Р° " + s + "\u001B[0m");
                 RecursionHandler.removeLast();
                 } catch (FileNotFoundException e) {
-                w.addToList(true, "\u001B[31m" + "Файл не найден" + "\u001B[0m");
+                w.addToList(true, "\u001B[31m" + "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ" + "\u001B[0m");
                 } catch (FailedCheckException | NumberFormatException e) {
-                w.addToList(true, "\u001B[31m" + "Файл содержит неправильные данные" + "\u001B[0m");
+                w.addToList(true, "\u001B[31m" + "Р¤Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ РЅРµРїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ" + "\u001B[0m");
                 RecursionHandler.removeLast();
                 }
 
@@ -201,8 +201,8 @@ public class CommandConvert {
         if (collection.isUserInMap(user))
             return collection.map.get(user);
         else {
-            w.addToList(true, "Не удаётся выполнить команду.");
-            w.addToList(true, "Авторизируйтесь или проверьте правильность логина и пароля.");
+            w.addToList(true, "РќРµ СѓРґР°С‘С‚СЃСЏ РІС‹РїРѕР»РЅРёС‚СЊ РєРѕРјР°РЅРґСѓ.");
+            w.addToList(true, "РђРІС‚РѕСЂРёР·РёСЂСѓР№С‚РµСЃСЊ РёР»Рё РїСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ Р»РѕРіРёРЅР° Рё РїР°СЂРѕР»СЏ.");
         }
         return null;
     }
@@ -210,7 +210,7 @@ public class CommandConvert {
   
     
     /**
-    * Перезаписывает элемент списка с указанным id
+    * РџРµСЂРµР·Р°РїРёСЃС‹РІР°РµС‚ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° СЃ СѓРєР°Р·Р°РЅРЅС‹Рј id
     */
     public static Writer update(Collection c, CommandSimple com, PostgreSQL sqlRun) {
     Writer w = new Writer();
@@ -227,7 +227,7 @@ public class CommandConvert {
             }
         }
         if (sm2 == null) {
-            w.addToList(true, "В доступной Вам коллекции такого элемента нет");
+            w.addToList(true, "Р’ РґРѕСЃС‚СѓРїРЅРѕР№ Р’Р°Рј РєРѕР»Р»РµРєС†РёРё С‚Р°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚");
 
             w.addToList(false, "end");
             return w;
@@ -235,7 +235,7 @@ public class CommandConvert {
         list.set(list.indexOf(sm2), (SpaceMarine) deser( ((String) com.returnObj())
         		.replace("{", "").replace("}", "").replace(" ", "")));
         
-        w.addToList(true, "Элемент с id: " + id + " успешно изменен");
+        w.addToList(true, "Р­Р»РµРјРµРЅС‚ СЃ id: " + id + " СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅ");
         sqlRun.add(com);
     }
 
@@ -247,7 +247,7 @@ public class CommandConvert {
    
 
     /**
-    * Удаляет все элементы из коллекции
+    * РЈРґР°Р»СЏРµС‚ РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РёР· РєРѕР»Р»РµРєС†РёРё
     */
     public static Writer clear(Collection c, CommandSimple com, PostgreSQL sqlRun) {
     Writer w = new Writer();
@@ -255,7 +255,7 @@ public class CommandConvert {
     List<SpaceMarine> list = properUser(w, com.getUser(), c);
     if (list != null) {
         list.clear();
-        w.addToList(true, "Доступная Вам коллекция очищена");
+        w.addToList(true, "Р”РѕСЃС‚СѓРїРЅР°СЏ Р’Р°Рј РєРѕР»Р»РµРєС†РёСЏ РѕС‡РёС‰РµРЅР°");
         sqlRun.add(com);
     }
     w.addToList(false,"end");
@@ -271,7 +271,7 @@ public class CommandConvert {
         Long id = (Long) com.returnObj();
         SpaceMarine smm = c.searchById(id);
         if (smm == null) {
-            w.addToList(true, "В доступной Вам коллекции такого элемента нет");
+            w.addToList(true, "Р’ РґРѕСЃС‚СѓРїРЅРѕР№ Р’Р°Рј РєРѕР»Р»РµРєС†РёРё С‚Р°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚");
 
             w.addToList(false, "end");
             return w;
@@ -279,16 +279,16 @@ public class CommandConvert {
         else {
         if (smm.getCreator().equals(com.getUser().login)) {
         list.remove(smm);
-        w.addToList(true, "Элемент с id: " + id + " успешно удален. ");
+        w.addToList(true, "Р­Р»РµРјРµРЅС‚ СЃ id: " + id + " СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ. ");
         sqlRun.add(com);}
         else {
-        	w.addToList(true, "Элемент не может быть удалён! Вы не являетесь его создателем.");
+        	w.addToList(true, "Р­Р»РµРјРµРЅС‚ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓРґР°Р»С‘РЅ! Р’С‹ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ РµРіРѕ СЃРѕР·РґР°С‚РµР»РµРј.");
             
         }
         }
     }
     else {
-    	w.addToList(true, "В доступной Вам коллекции такого элемента нет.");
+    	w.addToList(true, "Р’ РґРѕСЃС‚СѓРїРЅРѕР№ Р’Р°Рј РєРѕР»Р»РµРєС†РёРё С‚Р°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚.");
     }
 
     w.addToList(false,"end");
@@ -304,12 +304,12 @@ public class CommandConvert {
         Writer w = new Writer();
         if (!c.isLoginUsed(com.getUser().login)) {
             c.map.put(com.getUser(), new CopyOnWriteArrayList<>());
-            w.addToList(true, "\u001B[32m" + "Пользователь успешно зарегестрирован." + "\u001B[0m");
+            w.addToList(true, "\u001B[32m" + "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅ." + "\u001B[0m");
             sqlRun.add(com);
         }
         else {
-            w.addToList(true, "Пользователь с таким логином уже существует.");
-            w.addToList(true, "Попробуйте другой логин.");
+            w.addToList(true, "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.");
+            w.addToList(true, "РџРѕРїСЂРѕР±СѓР№С‚Рµ РґСЂСѓРіРѕР№ Р»РѕРіРёРЅ.");
         }
 
         w.addToList(false,"end");
@@ -319,7 +319,7 @@ public class CommandConvert {
 
 
     /**
-    * Выводит все элементы списка
+    * Р’С‹РІРѕРґРёС‚ РІСЃРµ СЌР»РµРјРµРЅС‚С‹ СЃРїРёСЃРєР°
     */
     
     public static Writer show(Collection c, CommandSimple com) {
@@ -327,9 +327,9 @@ public class CommandConvert {
         List<SpaceMarine> list = properUser(w, com.getUser(), c);
         if (list != null) {
         	for (User user : c.map.keySet()) {
-                w.addToList(true, "\u001B[35m" + "Все добавленные элементы поользователя: " + "\u001B[32m" + user.login + "\u001B[0m");
+                w.addToList(true, "\u001B[35m" + "Р’СЃРµ РґРѕР±Р°РІР»РµРЅРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РїРѕРѕР»СЊР·РѕРІР°С‚РµР»СЏ: " + "\u001B[32m" + user.login + "\u001B[0m");
                 if (c.map.get(user).isEmpty())
-                    w.addToList(true, "В коллекции нет элементов");
+                    w.addToList(true, "Р’ РєРѕР»Р»РµРєС†РёРё РЅРµС‚ СЌР»РµРјРµРЅС‚РѕРІ");
                 else
                     c.map.get(user).forEach(r -> w.addToList(true, r.toString()));
             }
@@ -343,13 +343,13 @@ public class CommandConvert {
     public static SpaceMarine SM_ID(SpaceMarine sm, Long id) {
     Writer w = new Writer();
     sm.setId(id);
-    w.addToList(true, "Элемент добавлен в коллекцию");
+    w.addToList(true, "Р­Р»РµРјРµРЅС‚ РґРѕР±Р°РІР»РµРЅ РІ РєРѕР»Р»РµРєС†РёСЋ");
     w.addToList(false,"end");
     return sm;
     }
 
     /**
-    * Добавляет элемент в список
+    * Р”РѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РІ СЃРїРёСЃРѕРє
     */
     public static Writer add(Collection c, CommandSimple com, PostgreSQL sqlRun) {
     Writer w = new Writer();
@@ -365,7 +365,7 @@ public class CommandConvert {
         id = c.getNextId();
     	}
         list.add(routeWithId((SpaceMarine) smm, id));
-        w.addToList(true, "Элемент успешно добавлен");
+        w.addToList(true, "Р­Р»РµРјРµРЅС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ");
         com.setID(id);
         sqlRun.add(com);
         
@@ -375,7 +375,7 @@ public class CommandConvert {
     }
 
     public static SpaceMarine deser(String s) {
-    // считываем построчно
+    // СЃС‡РёС‚С‹РІР°РµРј РїРѕСЃС‚СЂРѕС‡РЅРѕ
     String line = null;
     Scanner scanner = null;
     int index = 0;
@@ -440,7 +440,7 @@ public class CommandConvert {
     }
     
     
-  //remove_first : удалить первый элемент из коллекции
+  //remove_first : СѓРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РёР· РєРѕР»Р»РµРєС†РёРё
     public static Writer removeFirst(Collection c, CommandSimple com, PostgreSQL sqlRun) throws EndOfFileException {
     Writer w = new Writer();
     List<SpaceMarine> list = properUser(w, com.getUser(), c);
@@ -462,7 +462,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     //Writer.writeln("1");
     SpaceMarine smm = c.searchById(id);
     if (smm == null) {
-        w.addToList(true, "Такого в доcтупной вам коллекции элемента нет");
+        w.addToList(true, "РўР°РєРѕРіРѕ РІ РґРѕcС‚СѓРїРЅРѕР№ РІР°Рј РєРѕР»Р»РµРєС†РёРё СЌР»РµРјРµРЅС‚Р° РЅРµС‚");
 
         w.addToList(false, "end");
         return w;
@@ -476,9 +476,9 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     }
     }
     else {
-    	w.addToList(true, "\u001B[31m" + "Вы не можете удалить первый элемент, потому что не являетесь его создателем" + "\u001B[0m");
+    	w.addToList(true, "\u001B[31m" + "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СѓРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ РµРіРѕ СЃРѕР·РґР°С‚РµР»РµРј" + "\u001B[0m");
         
-   // w.addToList(true, "\u001B[31m" + "В коллекции нет элементов" + "\u001B[0m");
+   // w.addToList(true, "\u001B[31m" + "Р’ РєРѕР»Р»РµРєС†РёРё РЅРµС‚ СЌР»РµРјРµРЅС‚РѕРІ" + "\u001B[0m");
     	}
     
     w.addToList(true, "...");
@@ -486,7 +486,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     w.addToList(false,"end");
     return w;
     }
-    // head : вывести первый элемент коллекции
+    // head : РІС‹РІРµСЃС‚Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕР»Р»РµРєС†РёРё
     public static Writer head(Collection c) throws EndOfFileException {
     	
     Writer w = new Writer();
@@ -504,12 +504,12 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     w.addToList(true, flat.get(i).toString());
     }
     else {
-    w.addToList(true, "\u001B[31m" + "В доступной Вам коллекции нет нужного элемента" + "\u001B[0m");
+    w.addToList(true, "\u001B[31m" + "Р’ РґРѕСЃС‚СѓРїРЅРѕР№ Р’Р°Рј РєРѕР»Р»РµРєС†РёРё РЅРµС‚ РЅСѓР¶РЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°" + "\u001B[0m");
     }
     w.addToList(false,"end");
     return w;
     }
-    //remove_head : вывести первый элемент коллекции и удалить его
+    //remove_head : РІС‹РІРµСЃС‚Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕР»Р»РµРєС†РёРё Рё СѓРґР°Р»РёС‚СЊ РµРіРѕ
     public static Writer remove_head(Collection c, CommandSimple com, PostgreSQL sqlRun) throws EndOfFileException {
     
     	Writer w = new Writer();
@@ -532,7 +532,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
         //Writer.writeln("1");
         SpaceMarine smm = c.searchById(id);
         if (smm == null) {
-            w.addToList(true, "Такого в доcтупной вам коллекции элемента нет");
+            w.addToList(true, "РўР°РєРѕРіРѕ РІ РґРѕcС‚СѓРїРЅРѕР№ РІР°Рј РєРѕР»Р»РµРєС†РёРё СЌР»РµРјРµРЅС‚Р° РЅРµС‚");
 
             w.addToList(false, "end");
             return w;
@@ -547,9 +547,9 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
         }
         }
         else {
-        	w.addToList(true, "\u001B[31m" + "Вы не можете удалить первый элемент, потому что не являетесь его создателем" + "\u001B[0m");
+        	w.addToList(true, "\u001B[31m" + "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СѓРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ РµРіРѕ СЃРѕР·РґР°С‚РµР»РµРј" + "\u001B[0m");
             
-       // w.addToList(true, "\u001B[31m" + "В коллекции нет элементов" + "\u001B[0m");
+       // w.addToList(true, "\u001B[31m" + "Р’ РєРѕР»Р»РµРєС†РёРё РЅРµС‚ СЌР»РµРјРµРЅС‚РѕРІ" + "\u001B[0m");
         	}
         
         w.addToList(true, "...");
@@ -569,7 +569,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     		        .flatMap(List::stream)
     		        .collect(Collectors.toList());
     if (flat.isEmpty()) {
-    w.addToList(true, "В коллекции нет элементов");
+    w.addToList(true, "Р’ РєРѕР»Р»РµРєС†РёРё РЅРµС‚ СЌР»РµРјРµРЅС‚РѕРІ");
     w.addToList(false,"end");
     return w;
     }
@@ -582,7 +582,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     }
     }
     for (int j = 0; j < lan.size(); j++) {
-    w.addToList(true, "Легион:");
+    w.addToList(true, "Р›РµРіРёРѕРЅ:");
     w.addToList(true, lan.get(j));
     int k = 0;
     for (SpaceMarine sm : flat) {
@@ -591,7 +591,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     k = k+1;
     }
     }
-    w.addToList(true, "Всего элементов: " + k);
+    w.addToList(true, "Р’СЃРµРіРѕ СЌР»РµРјРµРЅС‚РѕРІ: " + k);
     }
     w.addToList(false,"end");
     return w;
@@ -628,11 +628,11 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     	 		
     	                   }
      		Collections.sort(c.list); 
-    w.addToList(true, "\u001B[32m" + "Элементы с " + s + "успешно далены" + "\u001B[0m");
+    w.addToList(true, "\u001B[32m" + "Р­Р»РµРјРµРЅС‚С‹ СЃ " + s + "СѓСЃРїРµС€РЅРѕ РґР°Р»РµРЅС‹" + "\u001B[0m");
     w.addToList(false,"end");
     }
     else {
-    w.addToList(true, "\u001B[32m" + "Такого типа оружия пока нет!" + "\u001B[0m");
+    w.addToList(true, "\u001B[32m" + "РўР°РєРѕРіРѕ С‚РёРїР° РѕСЂСѓР¶РёСЏ РїРѕРєР° РЅРµС‚!" + "\u001B[0m");
     w.addToList(false,"end");
     return w;
     }
@@ -653,7 +653,7 @@ ArrayList<List<SpaceMarine>> listAll = new ArrayList<>(c.map.values());
     		        .flatMap(List::stream)
     		        .collect(Collectors.toList());
     String s = (String) com.returnObj();
-    if (s == "0" || s == "f" || s == "false"|| s == "False" || s == "F") {w.addToList(true, "Таких элементов нет");}
+    if (s == "0" || s == "f" || s == "false"|| s == "False" || s == "F") {w.addToList(true, "РўР°РєРёС… СЌР»РµРјРµРЅС‚РѕРІ РЅРµС‚");}
     else {
     for (SpaceMarine sm : flat) {
     if (sm.getLoyal() == false)
