@@ -8,22 +8,22 @@ public class CommandArgs extends CommandSimple {
 	 */
 	private static final long serialVersionUID = 1L;
 	static Long id;
-	String smtr;
+	SpaceMarine sm;
 
-    public CommandArgs(User user, String smtr) {
+    public CommandArgs(User user, SpaceMarine sm) {
         super(user, CommandsList.ADD, id);
-        this.smtr = smtr;
+        this.sm = sm;
     }
 
     @Override
     public String toString() {
         return "CommandArgs{" +
-                "smtr=" + smtr +
+                "sm" + sm +
                 '}';
     }
 
     @Override
-    public String returnObj() {
-        return smtr;
+    public SpaceMarine returnObj() {
+        return sm;
     }
 }
