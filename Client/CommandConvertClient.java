@@ -26,7 +26,7 @@ import java.util.Collections;
 public class CommandConvertClient {
 
 	/**
-     * Обработка команд, вводимых с консоли
+     * РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґ, РІРІРѕРґРёРјС‹С… СЃ РєРѕРЅСЃРѕР»Рё
 	 * @throws IOException 
      */
     public static CommandSimple switcher(User user, String s1, String s2) throws EndOfFileException, IOException {
@@ -66,7 +66,7 @@ public class CommandConvertClient {
             case("register"):
                 return register(user);
             default:
-                Writer.writeln("Такой команды нет");
+                Writer.writeln("РўР°РєРѕР№ РєРѕРјР°РЅРґС‹ РЅРµС‚");
         }
         return null;
     }
@@ -84,12 +84,12 @@ public class CommandConvertClient {
 	
     
     /**
-     * Считывает скрипт
+     * РЎС‡РёС‚С‹РІР°РµС‚ СЃРєСЂРёРїС‚
      */
     
     
     /**
-     * Перезаписывает элемент списка с указанным id
+     * РџРµСЂРµР·Р°РїРёСЃС‹РІР°РµС‚ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° СЃ СѓРєР°Р·Р°РЅРЅС‹Рј id
      */
     public static CommandSimple update(User user, String s) throws EndOfFileException {
     	SpaceMarine sm = new SpaceMarine();
@@ -97,35 +97,35 @@ public class CommandConvertClient {
         try {
             id = SpaceMarine.idCheck.checker(Long.parseLong(s));
         } catch (NumberFormatException | FailedCheckException e) {
-            id = ConsoleClient.handlerL("Введите Long id: ", SpaceMarine.idCheck);
+            id = ConsoleClient.handlerL("Р’РІРµРґРёС‚Рµ Long id: ", SpaceMarine.idCheck);
         }
         removeById(user, id.toString());
         sm.setId(id);
-        s = ConsoleClient.handlerS("Введите String name, диной больше 0: ", SpaceMarine.nameCheck);
+        s = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String name, РґРёРЅРѕР№ Р±РѕР»СЊС€Рµ 0: ", SpaceMarine.nameCheck);
         sm.setName(s.replace(",", "").replace(" ",""));
-        Writer.writeln("Ввoд полей Coordinates:");
-        int cx = ConsoleClient.handlerI("Введите int x: ", Coordinates.xCheck);
-        Double cy = ConsoleClient.handlerD("Введите Double y: ", Coordinates.yCheck);
+        Writer.writeln("Р’РІoРґ РїРѕР»РµР№ Coordinates:");
+        int cx = ConsoleClient.handlerI("Р’РІРµРґРёС‚Рµ int x: ", Coordinates.xCheck);
+        Double cy = ConsoleClient.handlerD("Р’РІРµРґРёС‚Рµ Double y: ", Coordinates.yCheck);
         sm.setCoordinates(new Coordinates(cx, cy));
 
         LocalDate creationTime = LocalDate.now();
         sm.setCreationDate(creationTime);
         
-        Double health1 = ConsoleClient.handlerD("Введите Double health, больше 0:", SpaceMarine.healthCheck);
+        Double health1 = ConsoleClient.handlerD("Р’РІРµРґРёС‚Рµ Double health, Р±РѕР»СЊС€Рµ 0:", SpaceMarine.healthCheck);
         sm.setHealth(health1);
 
-        boolean loyal1 = ConsoleClient.handlerB("Введите boolean loyal", boolCheck);
+        boolean loyal1 = ConsoleClient.handlerB("Р’РІРµРґРёС‚Рµ boolean loyal", boolCheck);
         sm.setLoyal(loyal1);
         
-        String achievements = ConsoleClient.handlerS("Введите String achievements", SpaceMarine.nameCheck);
+        String achievements = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String achievements", SpaceMarine.nameCheck);
         sm.setAchievements(achievements.replace(",", "").replace(" ",""));
 
-        Writer.writeln("Ввoд полей Chapter");
-        String name1 = ConsoleClient.handlerS("Введите String name: ", Chapter.cCheck);
-        String parentLegion1 = ConsoleClient.handlerS("Введите String parentLegion: ", Chapter.cCheck);
+        Writer.writeln("Р’РІoРґ РїРѕР»РµР№ Chapter");
+        String name1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String name: ", Chapter.cCheck);
+        String parentLegion1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String parentLegion: ", Chapter.cCheck);
         sm.setChapter(new Chapter(name1.replace(",", ""), parentLegion1.replace(",", "")));
         
-        String weaponType1 = ConsoleClient.handlerS("Введите Weapon weaponType {\r\n" + 
+        String weaponType1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Weapon weaponType {\r\n" + 
         		"    HEAVY_BOLTGUN,\r\n" + 
         		"    BOLT_RIFLE,\r\n" + 
         		"    PLASMA_GUN,\r\n" + 
@@ -144,7 +144,7 @@ public class CommandConvertClient {
         	fl = false;
         }
         else {
-        	weaponType1 = ConsoleClient.handlerS("Введите Weapon weaponType {\r\n" + 
+        	weaponType1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Weapon weaponType {\r\n" + 
             		"    HEAVY_BOLTGUN,\r\n" + 
             		"    BOLT_RIFLE,\r\n" + 
             		"    PLASMA_GUN,\r\n" + 
@@ -158,21 +158,21 @@ public class CommandConvertClient {
     }
     
     /**
-     * Удаляет элемент по его id
+     * РЈРґР°Р»СЏРµС‚ СЌР»РµРјРµРЅС‚ РїРѕ РµРіРѕ id
      */
     public static CommandSimple removeById(User user, String s) throws EndOfFileException {
         Long id;
         try {
             id = SpaceMarine.idCheck.checker(Long.parseLong(s));
         } catch (NumberFormatException | FailedCheckException e) {
-            id = ConsoleClient.handlerL("Введите Long id: ", SpaceMarine.idCheck);
+            id = ConsoleClient.handlerL("Р’РІРµРґРёС‚Рµ Long id: ", SpaceMarine.idCheck);
         }
           
         return new CommandLonArg(user, id);
     }
     
     /**
-     * Добавляет элемент в список
+     * Р”РѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РІ СЃРїРёСЃРѕРє
      */
     public static CommandSimple add(User user, String s) throws EndOfFileException, IOException {
     	SpaceMarine sm = new SpaceMarine();
@@ -182,34 +182,34 @@ public class CommandConvertClient {
         sm.setId(id1);
         try {
             SpaceMarine.nameCheck.checker(s);
-            Writer.writeln("Поле name: " + s);
+            Writer.writeln("РџРѕР»Рµ name: " + s);
         } catch (FailedCheckException e) {
-            s = ConsoleClient.handlerS("Введите String name, диной больше 0: ", SpaceMarine.nameCheck);
+            s = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String name, РґРёРЅРѕР№ Р±РѕР»СЊС€Рµ 0: ", SpaceMarine.nameCheck);
         }
         sm.setName(s.replace(",", "").replace(" ",""));
-        Writer.writeln("Ввoд полей Coordinates: ");
-        int cx = ConsoleClient.handlerI("Введите int x: ", Coordinates.xCheck);
-        Double cy = ConsoleClient.handlerD("Введите Double y: ", Coordinates.yCheck);
+        Writer.writeln("Р’РІoРґ РїРѕР»РµР№ Coordinates: ");
+        int cx = ConsoleClient.handlerI("Р’РІРµРґРёС‚Рµ int x: ", Coordinates.xCheck);
+        Double cy = ConsoleClient.handlerD("Р’РІРµРґРёС‚Рµ Double y: ", Coordinates.yCheck);
         sm.setCoordinates(new Coordinates(cx, cy));
 
         LocalDate creationTime = LocalDate.now();
         sm.setCreationDate(creationTime);
         
-        Double health1 = ConsoleClient.handlerD("Введите Double health, больше 0: ", SpaceMarine.healthCheck);
+        Double health1 = ConsoleClient.handlerD("Р’РІРµРґРёС‚Рµ Double health, Р±РѕР»СЊС€Рµ 0: ", SpaceMarine.healthCheck);
         sm.setHealth(health1);
 
-        boolean loyal1 = ConsoleClient.handlerB("Введите boolean loyal: ", boolCheck);
+        boolean loyal1 = ConsoleClient.handlerB("Р’РІРµРґРёС‚Рµ boolean loyal: ", boolCheck);
         sm.setLoyal(loyal1);
         
-        String achievements = ConsoleClient.handlerS("Введите String achievements: ", SpaceMarine.nameCheck);
+        String achievements = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String achievements: ", SpaceMarine.nameCheck);
         sm.setAchievements(achievements.replace(",", "").replace(" ",""));
 
-        Writer.writeln("Ввoд полей Chapter: ");
-        String name1 = ConsoleClient.handlerS("Введите String name: ", Chapter.cCheck);
-        String parentLegion1 = ConsoleClient.handlerS("Введите String parentLegion: ", Chapter.cCheck);
+        Writer.writeln("Р’РІoРґ РїРѕР»РµР№ Chapter: ");
+        String name1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String name: ", Chapter.cCheck);
+        String parentLegion1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ String parentLegion: ", Chapter.cCheck);
         sm.setChapter(new Chapter(name1.replace(",", ""), parentLegion1.replace(",", "")));
         
-        String weaponType1 = ConsoleClient.handlerS("Введите Weapon weaponType из предложенных{\r\n" + 
+        String weaponType1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Weapon weaponType РёР· РїСЂРµРґР»РѕР¶РµРЅРЅС‹С…{\r\n" + 
         		"    HEAVY_BOLTGUN,\r\n" + 
         		"    BOLT_RIFLE,\r\n" + 
         		"    PLASMA_GUN,\r\n" + 
@@ -228,7 +228,7 @@ public class CommandConvertClient {
         	fl = false;
         }
         else {
-        	weaponType1 = ConsoleClient.handlerS("Введите Weapon weaponType {\r\n" + 
+        	weaponType1 = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Weapon weaponType {\r\n" + 
             		"    HEAVY_BOLTGUN,\r\n" + 
             		"    BOLT_RIFLE,\r\n" + 
             		"    PLASMA_GUN,\r\n" + 
@@ -236,9 +236,9 @@ public class CommandConvertClient {
             		"    INFERNO_PISTOL;\r\n" + 
             		"}   ", SpaceMarine.nameCheck);
         } }}
-        smtr = sm.toString();
+        
        
-        return new CommandArgs(user, smtr);
+        return new CommandArgs(user, sm);
     }
     
     public static Checker<Boolean> boolCheck = (Boolean B) -> {
@@ -248,15 +248,15 @@ public class CommandConvertClient {
     
     
     private static CommandSimple register(User user) throws EndOfFileException {
-        String login = ConsoleClient.handlerS("Введите логин: ", Utils.loginCheck);
-        String password = ConsoleClient.handlerS("Введите пароль: ", Utils.passwordCheck);
+        String login = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ: ", Utils.loginCheck);
+        String password = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ: ", Utils.passwordCheck);
         user.changeUser(login, password);
         return new CommandSimple(user, CommandsList.REGISTER, null);
     }
 
     private static CommandSimple login(User user) throws EndOfFileException {
-        String login = ConsoleClient.handlerS("Введите логин: ", Utils.loginCheck);
-        String password = ConsoleClient.handlerS("Введите пароль: ", Utils.passwordCheck);
+        String login = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ: ", Utils.loginCheck);
+        String password = ConsoleClient.handlerS("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ: ", Utils.passwordCheck);
         user.changeUser(login, password);
         return new CommandSimple(user, CommandsList.LOGIN, null);
     }
