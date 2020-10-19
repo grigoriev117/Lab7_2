@@ -71,13 +71,13 @@ public class PostgreSQL extends Thread {
                             registerSQL(com, connection);
                             break;
                         default:
-                            Writer.writeln("Неизвестная комманда в потоке SQL");
+                            Writer.writeln("РќРµРёР·РІРµСЃС‚РЅР°СЏ РєРѕРјРјР°РЅРґР° РІ РїРѕС‚РѕРєРµ SQL");
                     }
                 }
                 Thread.sleep(500);
             }
         } catch (Exception e) {
-            Writer.writeln("Не удалось установить соединение с Базой Данных.");
+            Writer.writeln("РќРµ СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р‘Р°Р·РѕР№ Р”Р°РЅРЅС‹С….");
             e.printStackTrace();
         }
         killFlag.set(true);
@@ -97,13 +97,13 @@ public class PostgreSQL extends Thread {
                         }
                     }
                 } catch (SQLException e) {
-                    System.out.println("Соединение прервано. (Код ошибки: 1)");
+                    System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 1)");
                     e.printStackTrace();
                     killFlag.set(true);
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 2)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 2)");
             e.printStackTrace();
             killFlag.set(true);
         }
@@ -141,12 +141,12 @@ public class PostgreSQL extends Thread {
                     map.put(userFromHashPassword(login,hash), new CopyOnWriteArrayList<>());
                 }
             } catch (SQLException e) {
-                System.out.println("Соединение прервано. (Код ошибки: 3)");
+                System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 3)");
                 e.printStackTrace();
                 killFlag.set(true);
             }
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 4)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 4)");
             e.printStackTrace();
             killFlag.set(true);
         }
@@ -163,11 +163,11 @@ public class PostgreSQL extends Thread {
                     return id;
                 }
             } catch (SQLException e) {
-                System.out.println("Соединение прервано. (Код ошибки: 5)");
+                System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 5)");
                 killFlag.set(true);
             }
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 6)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 6)");
             killFlag.set(true);
         }
         return (long) 0;
@@ -179,7 +179,7 @@ public class PostgreSQL extends Thread {
             statement.setString(2, com.getUser().hashPassword);
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 7)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 7)");
             killFlag.set(true);
         }
     }
@@ -189,7 +189,7 @@ public class PostgreSQL extends Thread {
             statement.setString(1, com.getUser().login);
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 8)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 8)");
             killFlag.set(true);
         }
     }
@@ -200,7 +200,7 @@ public class PostgreSQL extends Thread {
             statement.setString(2, com.getUser().login);
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 9)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 9)");
             killFlag.set(true);
         }
     }
@@ -254,12 +254,12 @@ public class PostgreSQL extends Thread {
             
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 10)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 10)");
             killFlag.set(true);
         }
     }
     public static SpaceMarine deser(String s) {
-        // считываем построчно
+        // СЃС‡РёС‚С‹РІР°РµРј РїРѕСЃС‚СЂРѕС‡РЅРѕ
         String line = null;
         Scanner scanner = null;
         int index = 0;
@@ -352,7 +352,7 @@ public class PostgreSQL extends Thread {
     	
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Соединение прервано. (Код ошибки: 11)");
+            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ РїСЂРµСЂРІР°РЅРѕ. (РљРѕРґ РѕС€РёР±РєРё: 11)");
             e.printStackTrace();
             killFlag.set(true);
         }
