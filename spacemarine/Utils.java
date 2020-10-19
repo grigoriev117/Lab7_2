@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Utils {
     /**
-     * Проверка на тип Long
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї Long
      */
     public static Checker<Long> DCheck = (Long L) -> {
         if (L == null || L == 0) return null;
@@ -17,7 +17,7 @@ public class Utils {
         throw new FailedCheckException();
     };
     /**
-     * Проверка на тип Integer
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї Integer
      */
     public static Checker<Long> SpaceMarineIdCheck = (Long L) -> {
         if (L != null && L > 0) return L;
@@ -29,7 +29,7 @@ public class Utils {
         else throw new FailedCheckException();
     };
     /**
-     * Проверка на тип String
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї String
      */
     public static Checker<String> SpaceMarineNameCheck = (String S) -> {
         if (S != null && S.length() != 0 && S.length() <= 20) return S;
@@ -38,21 +38,21 @@ public class Utils {
     
    
     /**
-     * Проверка на тип String
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї String
      */
     public static Checker<String> loginCheck = (String S) -> {
         if (S != null && S.length() != 0 && S.length() <= 20) return S;
         else throw new FailedCheckException();
     };
     /**
-     * Проверка на тип String
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї String
      */
     public static Checker<String> hashCheck = (String S) -> {
         if (S != null && S.length() == 40) return S;
         else throw new FailedCheckException();
     };
     /**
-     * Проверка на тип String
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї String
      */
     public static Checker<String> passwordCheck = (String S) -> {
         if (S == null) return "password";
@@ -61,7 +61,7 @@ public class Utils {
     };
     
     /**
-     * Проверка на тип String
+     * РџСЂРѕРІРµСЂРєР° РЅР° С‚РёРї String
      */
     public static Checker<String> locationNameCheck = (String s) -> {
         if (s == null) return null;
@@ -69,21 +69,21 @@ public class Utils {
         throw new FailedCheckException();
     };
     /**
-     * Проверка для x Integer
+     * РџСЂРѕРІРµСЂРєР° РґР»СЏ x Integer
      */
     public static Checker<Integer> coordinatesXCheck = (Integer I) -> {
         if (I != null) return I;
         else throw new FailedCheckException();
     };
     /**
-     * Проверка для y Long
+     * РџСЂРѕРІРµСЂРєР° РґР»СЏ y Long
      */
     public static Checker<Double> coordinatesYCheck = (Double L) -> {
         if (L != null) return L;
         else throw new FailedCheckException();
     };
     /**
-     * Проверка для y Boolean
+     * РџСЂРѕРІРµСЂРєР° РґР»СЏ y Boolean
      */
     public static Checker<Boolean> boolCheck = (Boolean B) -> {
         if (B != null) return B;
