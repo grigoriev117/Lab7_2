@@ -295,7 +295,7 @@ public class CommandConvert {
     return w;
     }
     
-    public static SpaceMarine routeWithId(SpaceMarine sm, Long id) {
+    public static SpaceMarine SMWithId(SpaceMarine sm, Long id) {
         sm.setId(id);
         return sm;
     }
@@ -364,7 +364,7 @@ public class CommandConvert {
     	while (c.searchById(id) != null) {
         id = c.getNextId();
     	}
-        list.add(routeWithId((SpaceMarine) smm, id));
+        list.add(SMId((SpaceMarine) smm, id));
         w.addToList(true, "Элемент успешно добавлен");
         com.setID(id);
         sqlRun.add(com);
