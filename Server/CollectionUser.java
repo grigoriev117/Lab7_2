@@ -1,25 +1,23 @@
 package Server;
 
 import spacemarine.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Класс для хранения и обработки LinkedList
+ * РљР»Р°СЃСЃ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Рё РѕР±СЂР°Р±РѕС‚РєРё LinkedList
  */
 public class CollectionUser {
 
 	
 	
     /**
-     * Дата создания списка
+     * Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ СЃРїРёСЃРєР°
      */
     private Date date = new Date();
     /**
-     * Список, в котором хранятся элементы типа User
+     * РЎРїРёСЃРѕРє, РІ РєРѕС‚РѕСЂРѕРј С…СЂР°РЅСЏС‚СЃСЏ СЌР»РµРјРµРЅС‚С‹ С‚РёРїР° User
      */
     public LinkedList<User> list = new LinkedList<>();
 
