@@ -3,11 +3,11 @@ package spacemarine;
 import Exceptions.FailedCheckException;
 
 /**
- * Класс - поле класса SpaceMarine
+ * РљР»Р°СЃСЃ - РїРѕР»Рµ РєР»Р°СЃСЃР° SpaceMarine
  */
 
 public class Chapter {
-    private String name; //Поле не может быть null, Строка не может быть пустой
+    private String name; //РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ null, РЎС‚СЂРѕРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚РѕР№
     private String parentLegion;
 
 
@@ -18,7 +18,7 @@ public class Chapter {
 
  
     /**
-     * Проверка String
+     * РџСЂРѕРІРµСЂРєР° String
      */
     public static Checker<String> cCheck = (String S) -> {
         if (S != null) return S;
